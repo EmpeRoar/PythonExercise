@@ -91,7 +91,7 @@ def ArrayChallenge(arr):
     
     logging.warning(slidingWindowSize)
     logging.warning(listOfNumber)
-    
+
     if slidingWindowSize <= len(listOfNumber) :
         currentIndex = 0    
         GetNextSlidingWindow(listOfMedian, listOfNumber, slidingWindowSize, currentIndex)        
@@ -101,7 +101,7 @@ def ArrayChallenge(arr):
 def main():
     # arr = [3, 1, 3, 5, 10, 6, 4, 3, 1]    
     # arr = [5,2,4,6]
-    # arr = [3, 0, 0, -2, 0, 2, 0, -2]
+    arr = [3, 0, 0, -2, 0, 2, 0, -2]
     print(','.join(map(str, ArrayChallenge(arr))))
     return
 
