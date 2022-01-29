@@ -57,10 +57,6 @@ def GetMedianOfSlidingWindow(currentSlidingWindow):
 def GetNextSlidingWindow(listOfMedian, listOfNumber, slidingWindowSize, currentIndex):
     currentSlidingWindow = []
     i = currentIndex
-
-    logging.warning(listOfMedian)
-    
-
     while i < (slidingWindowSize+currentIndex):
         currentSlidingWindow.append(listOfNumber[i]) 
         i += 1
@@ -79,21 +75,23 @@ def ArrayChallenge(arr):
     arr.pop(0)
     listOfNumber = arr
     i = 0
-    medianIndex = 1
+    medianIndex = listOfNumber[0]
     listOfMedian = []
     while medianIndex < slidingWindowSize:
         listOfMedian.append(medianIndex)
         medianIndex += 1
         i += 1
     
-    currentIndex = 0    
-    GetNextSlidingWindow(listOfMedian, listOfNumber, slidingWindowSize, currentIndex)        
+    if slidingWindowSize <= len(listOfMedian) :
+        currentIndex = 0    
+        GetNextSlidingWindow(listOfMedian, listOfNumber, slidingWindowSize, currentIndex)        
+
     return listOfMedian
 
 def main():
     # arr = [3, 1, 3, 5, 10, 6, 4, 3, 1]    
-    arr = [5,2,4,6]
-    # arr = [3, 0, 0, -2, 0, 2, 0, -2]
+    # arr = [5,2,4,6]
+    arr = [3, 0, 0, -2, 0, 2, 0, -2]
     print(','.join(map(str, ArrayChallenge(arr))))
     return
 
