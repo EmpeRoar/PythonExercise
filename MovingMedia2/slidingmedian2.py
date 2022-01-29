@@ -78,11 +78,14 @@ def ArrayChallenge(arr):
     medianIndex = listOfNumber[0]
     listOfMedian = []
     while medianIndex < slidingWindowSize:
+            
         listOfMedian.append(medianIndex)
         medianIndex += 1
         i += 1
     
-    if slidingWindowSize <= len(listOfMedian) :
+    logging.warning(slidingWindowSize)
+    logging.warning(listOfNumber)
+    if slidingWindowSize <= len(listOfNumber) :
         currentIndex = 0    
         GetNextSlidingWindow(listOfMedian, listOfNumber, slidingWindowSize, currentIndex)        
 
