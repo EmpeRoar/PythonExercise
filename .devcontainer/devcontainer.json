@@ -1,0 +1,46 @@
+{
+  "name": "Python (modern + legacy via pyenv)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      // Bumped as new CPython releases land; older interpreters are
+      // installed on demand with `pyenv install <version>` inside the container.
+      "PYTHON_VERSION": "3.12.6"
+    }
+  },
+  "remoteUser": "vscode",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/home/vscode/.pyenv/shims/python",
+        "python.terminal.activateEnvironment": true,
+        "editor.formatOnSave": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        },
+        "mypy-type-checker.importStrategy": "fromEnvironment",
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker",
+        "ms-toolsai.jupyter",
+        "njpwerner.autodocstring",
+        "tamasfe.even-better-toml",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
+}
