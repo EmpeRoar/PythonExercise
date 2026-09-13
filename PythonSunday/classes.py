@@ -6,3 +6,5 @@ class MyClass:
 
 my_object = MyClass()
 my_object.func()
+
+print(my_object.var)
